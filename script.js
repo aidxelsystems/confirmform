@@ -122,8 +122,7 @@ function submitAgreement() {
     const payload = {
         name: inputData.name,
         email: inputData.email,
-        timestamp: new Date().toISOString(),
-        userAgent: navigator.userAgent
+        timestamp: new Date().toISOString()
     };
 
     // Send Request

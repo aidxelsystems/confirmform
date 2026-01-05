@@ -1,12 +1,5 @@
-/**
- * Logic for ConfirmForm
- */
-
-// Configuration
-// ==========================================
-// Replace this URL with your deployed Google Apps Script Web App URL
-const GAS_API_URL = 'YOUR_GAS_WEB_APP_URL_HERE';
-// ==========================================
+// Configuration is loaded from config.js
+// const GAS_API_URL is now CONFIG.GAS_API_URL
 
 // Global State
 const inputData = {
@@ -112,8 +105,8 @@ function showConsultationAlert() {
  * Screen 4: Submit to Backend
  */
 function submitAgreement() {
-    if (GAS_API_URL === 'YOUR_GAS_WEB_APP_URL_HERE') {
-        Swal.fire('システム設定未完了', 'GASのWebhook URLが設定されていません。管理者に連絡してください。', 'error');
+    if (CONFIG.GAS_API_URL === 'YOUR_GAS_WEB_APP_URL_HERE') {
+        Swal.fire('システム設定未完了', 'GASのWebhook URLが設定されていません。config.jsを確認してください。', 'error');
         return;
     }
 
@@ -134,7 +127,7 @@ function submitAgreement() {
     };
 
     // Send Request
-    fetch(GAS_API_URL, {
+    fetch(CONFIG.GAS_API_URL, {
         method: 'POST',
         // 'no-cors' mode is often used for GAS Simple Triggers but returns opaque response.
         // For 'Web App' executed as 'Me', standard CORS usually works if GAS function outputs headers correctly.

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お手続きのご案内 | あんしんサポート</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="background-pattern"></div>
+
+    <main class="container">
+        <!-- Header / Logo Area -->
+        <header class="main-header">
+            <!-- <img src="logo.png" alt="Company Logo" class="logo"> -->
+            <div class="logo-placeholder"><i class="fa-solid fa-shield-halved"></i> Premium Support</div>
+        </header>
+
+        <!-- Screen 0: Entry Form -->
+        <section id="screen-0" class="screen active">
+            <h1 class="page-title">お手続きにあたって</h1>
+            <p class="description">
+                お客様情報の確認のため、<br>
+                お名前とご連絡先メールアドレスをご入力ください。
+            </p>
+            
+            <form id="entry-form" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="user-name">お名前 <span class="required">必須</span></label>
+                    <input type="text" id="user-name" placeholder="例：田中 太郎" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-email">メールアドレス <span class="required">必須</span></label>
+                    <input type="email" id="user-email" placeholder="例：taro.tanaka@example.com" required>
+                </div>
+
+                <div class="action-area">
+                    <button type="button" class="btn btn-primary" onclick="goToScreen1()">
+                        続きを確認する <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <p id="error-msg-0" class="error-message"></p>
+                </div>
+            </form>
+        </section>
+
+        <!-- Screen 1: Welcome & Subsidy Report -->
+        <section id="screen-1" class="screen">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">補助金着金のお知らせ</h2>
+                </div>
+                <div class="card-body">
+                    <p class="greeting"><span class="dynamic-name">お客様</span>、</p>
+                    <p class="message-text">
+                        この度は補助金（経費の <span class="highlight">3/4</span>）の着金、私たちの事務手続きが実を結び、大きな資金がお手元に届きましたこと、スタッフ一同、自分のことのように安堵しております。
+                    </p>
+                    <p class="message-text">
+                        長らくお待たせした感謝を込めて、今後の『設備保証』に関する大切なお手続きをご案内します。
+                    </p>
+                </div>
+                <div class="action-area">
+                    <button class="btn btn-primary" onclick="nextScreen(2)">
+                        次へ進む <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 2: Future Risk -->
+        <section id="screen-2" class="screen">
+            <div class="card warning-card">
+                <div class="card-header">
+                    <h2 class="card-title"><i class="fa-solid fa-triangle-exclamation"></i> 将来リスクの提示</h2>
+                </div>
+                <div class="card-body">
+                    <p class="message-text">
+                        今回設置された最高水準のシステムですが、
+                        今後数十年お使いいただく中で将来必ず発生する<br>
+                        <strong>『パワーコンディショナの交換』</strong>。
+                    </p>
+                    <div class="alert-box">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <p>現在、多くの方がこの将来のアフターメンテナンス出費に頭を悩ませておられます。</p>
+                    </div>
+                </div>
+                <div class="action-area">
+                    <button class="btn btn-primary" onclick="nextScreen(3)">
+                        対策を見る <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 3: Proposal -->
+        <section id="screen-3" class="screen">
+            <div class="card premium-card">
+                <div class="card-header">
+                    <h2 class="card-title">特別解決案（和解案）</h2>
+                    <div class="badge">ご提案</div>
+                </div>
+                <div class="card-body">
+                    <p class="message-text">
+                        そこで弊社は、補助金残り <span class="highlight">1/4</span> の精算に代えて、<span class="dynamic-name"></span>様の安心を一生涯守るための<br>
+                        <span class="gold-text">『あんしんサポート権』</span>をご用意しました。
+                    </p>
+                    
+                    <div class="benefits-list">
+                        <h3>【 特典内容 】</h3>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> 外部専門機関と連携した長期メンテナンス優待</li>
+                            <li><i class="fa-solid fa-check"></i> 機材故障時の優先対応</li>
+                        </ul>
+                    </div>
+                    
+                    <p class="message-text small">
+                        この内容は、将来の大きな経済的利益と安心を確約するものです。
+                    </p>
+                </div>
+                <div class="action-area">
+                    <button class="btn btn-primary btn-large" onclick="nextScreen(4)">
+                        この内容で和解・合意する <span class="sub-text">（推奨プラン）</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="showConsultationAlert()">
+                        詳細を別途相談する
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 4: Final Confirmation -->
+        <section id="screen-4" class="screen">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">最終確認（法的エビデンス）</h2>
+                </div>
+                <div class="card-body">
+                    <p class="message-text">
+                        ご賢明なご判断をありがとうございます。<br>
+                        本合意をもちまして、補助金精算に関する全ての事項を円滑に解決したものといたします。
+                    </p>
+                    <p class="message-text">
+                        今後は『末永くパートナー』として、<span class="dynamic-name"></span>様の設備を守り続けることに全力を注いでまいります。
+                    </p>
+                    
+                    <hr class="divider">
+                    
+                    <div class="agreement-box">
+                        <h3>【 最終確認 】</h3>
+                        <p>
+                            本内容にて合意し、以後、本件に関し互いに債権債務がないことを確認します。よろしいですか？
+                        </p>
+                    </div>
+                </div>
+                <div class="action-area">
+                    <button class="btn btn-primary btn-confirm" onclick="submitAgreement()">
+                        はい、合意して手続きを完了する
+                    </button>
+                    <!-- Loading Spinner (Hidden by default) -->
+                    <div id="loading-spinner" class="spinner hidden">
+                        <i class="fa-solid fa-circle-notch fa-spin"></i> 処理中...
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 5: Completion -->
+        <section id="screen-5" class="screen">
+            <div class="card success-card">
+                <div class="success-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h2 class="success-title">お手続きが完了しました！</h2>
+                <div class="card-body">
+                    <p class="message-text">
+                        ご登録のメールアドレスに、本内容の『合意済通知書』を自動送信いたしました。<br>
+                        （数分以内に届かない場合は迷惑メールフォルダをご確認ください）
+                    </p>
+                    <p class="message-text">
+                        これからは、新しいメンテナンス体制にて、<span class="dynamic-name"></span>様のエコライフを末永くサポートさせていただきます。<br>
+                        ありがとうございました！
+                    </p>
+                </div>
+                <div class="action-area">
+                    <button class="btn btn-secondary" onclick="location.reload()">
+                        トップへ戻る
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <p>&copy; Premium Support Service. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- For nice alerts -->
+</body>
+</html>

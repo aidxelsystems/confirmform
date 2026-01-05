@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,14 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
     <div class="background-pattern"></div>
@@ -31,13 +34,13 @@
                 お客様情報の確認のため、<br>
                 お名前とご連絡先メールアドレスをご入力ください。
             </p>
-            
+
             <form id="entry-form" onsubmit="return false;">
                 <div class="form-group">
                     <label for="user-name">お名前 <span class="required">必須</span></label>
                     <input type="text" id="user-name" placeholder="例：田中 太郎" required>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="user-email">メールアドレス <span class="required">必須</span></label>
                     <input type="email" id="user-email" placeholder="例：taro.tanaka@example.com" required>
@@ -61,7 +64,8 @@
                 <div class="card-body">
                     <p class="greeting"><span class="dynamic-name">お客様</span>、</p>
                     <p class="message-text">
-                        この度は補助金（経費の <span class="highlight">3/4</span>）の着金、私たちの事務手続きが実を結び、大きな資金がお手元に届きましたこと、スタッフ一同、自分のことのように安堵しております。
+                        この度は補助金（経費の <span
+                            class="highlight">3/4</span>）の着金、私たちの事務手続きが実を結び、大きな資金がお手元に届きましたこと、スタッフ一同、自分のことのように安堵しております。
                     </p>
                     <p class="message-text">
                         長らくお待たせした感謝を込めて、今後の『設備保証』に関する大切なお手続きをご案内します。
@@ -109,10 +113,11 @@
                 </div>
                 <div class="card-body">
                     <p class="message-text">
-                        そこで弊社は、補助金残り <span class="highlight">1/4</span> の精算に代えて、<span class="dynamic-name"></span>様の安心を一生涯守るための<br>
+                        そこで弊社は、補助金残り <span class="highlight">1/4</span> の精算に代えて、<span
+                            class="dynamic-name"></span>様の安心を一生涯守るための<br>
                         <span class="gold-text">『あんしんサポート権』</span>をご用意しました。
                     </p>
-                    
+
                     <div class="benefits-list">
                         <h3>【 特典内容 】</h3>
                         <ul>
@@ -120,7 +125,7 @@
                             <li><i class="fa-solid fa-check"></i> 機材故障時の優先対応</li>
                         </ul>
                     </div>
-                    
+
                     <p class="message-text small">
                         この内容は、将来の大きな経済的利益と安心を確約するものです。
                     </p>
@@ -150,9 +155,9 @@
                     <p class="message-text">
                         今後は『末永くパートナー』として、<span class="dynamic-name"></span>様の設備を守り続けることに全力を注いでまいります。
                     </p>
-                    
+
                     <hr class="divider">
-                    
+
                     <div class="agreement-box">
                         <h3>【 最終確認 】</h3>
                         <p>
@@ -204,8 +209,11 @@
         <p>&copy; Premium Support Service. All Rights Reserved.</p>
     </footer>
 
+    <!-- Configuration -->
+    <script src="config.js"></script>
     <!-- JavaScript -->
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- For nice alerts -->
 </body>
+
 </html>

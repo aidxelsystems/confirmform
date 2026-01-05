@@ -1,13 +1,28 @@
 /* Basic Reset & Fonts */
 :root {
-    --primary-color: #0F172A; /* Deep Navy */
-    --accent-color: #D4AF37; /* Gold */
-    --accent-hover: #b5952f;
-    --text-color: #333333;
-    --bg-color: #F0F2F5;
-    --card-bg: #FFFFFF;
-    --success-color: #2da160;
-    --warning-bg: #fffbf0;
+    /* 安心感のある色味（白基調・落ち着いた青・自然な緑） */
+    --bg-color: #f8fafc;
+    /* 非常に薄いグレー/白 */
+    --card-bg: #ffffff;
+    /* 真っ白 */
+    --text-color: #374151;
+    /* 読みやすいダークグレー */
+
+    --primary-color: #334155;
+    /* 落ち着いたスレートグレー（文字や枠線用） */
+    --theme-blue: #0284c7;
+    /* 安心感のあるスカイブルー */
+    --theme-navy: #1e293b;
+    /* 信頼感のあるネイビー */
+
+    --accent-color: #d97706;
+    /* 派手すぎない落ち着いたゴールド/アンバー */
+
+    --success-color: #10b981;
+    /* 優しい緑 */
+    --warning-bg: #fff7ed;
+    /* 薄いオレンジ背景 */
+
     --font-main: 'Zen Kaku Gothic New', sans-serif;
 }
 
@@ -19,7 +34,7 @@
 
 body {
     font-family: var(--font-main);
-    background-color: var(--primary-color);
+    background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
     display: flex;
@@ -28,7 +43,7 @@ body {
     justify-content: space-between;
 }
 
-/* Background Pattern */
+/* Background Pattern (Subtle & Light) */
 .background-pattern {
     position: fixed;
     top: 0;
@@ -36,7 +51,10 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: radial-gradient(circle at 50% -20%, #1e293b, #0f172a);
+    background-color: #f8fafc;
+    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
 }
 
 /* Layout */
@@ -52,14 +70,22 @@ body {
 .main-header {
     text-align: center;
     margin-bottom: 30px;
-    color: var(--accent-color);
+    color: var(--theme-navy);
 }
 
 .logo-placeholder {
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 1px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    color: var(--theme-navy);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-placeholder i {
+    color: var(--theme-blue);
 }
 
 /* Screen visibility */
@@ -72,39 +98,68 @@ body {
     display: block;
 }
 
-/* Cards */
+/* Screen 0 specific (Apply Card style to it or wrap in HTML? Better to style it like a card here) */
+#screen-0 {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 40px 30px;
+    text-align: center;
+    border-top: 5px solid var(--theme-blue);
+}
+
+#screen-0 .page-title {
+    font-size: 1.4rem;
+    color: var(--theme-navy);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+#screen-0 .description {
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+/* Application Cards */
 .card {
     background: var(--card-bg);
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    /* Softer shadow */
     padding: 30px;
     margin-bottom: 20px;
-    border-top: 5px solid var(--accent-color);
+    border: 1px solid #f1f5f9;
 }
 
 .card-header {
     margin-bottom: 20px;
     text-align: center;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e2e8f0;
     padding-bottom: 15px;
 }
 
 .card-title {
-    font-size: 1.4rem;
-    color: var(--primary-color);
+    font-size: 1.3rem;
+    color: var(--theme-navy);
     font-weight: 700;
 }
 
+/* Card Variations */
 .warning-card {
-    border-top-color: #ff9800;
+    border-top: 4px solid #f97316;
+    /* Orange */
 }
 
 .premium-card {
-    border-top: none;
     background: linear-gradient(to bottom, #fffcf5, #ffffff);
-    border: 2px solid var(--accent-color);
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid var(--accent-color);
     position: relative;
     overflow: hidden;
+}
+
+.success-card {
+    border-top: 4px solid var(--success-color);
 }
 
 /* Badge */
@@ -118,61 +173,68 @@ body {
     transform: rotate(45deg);
     font-size: 0.8rem;
     font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Typography & Content */
 .message-text {
     margin-bottom: 1.5rem;
-    font-size: 1.05rem;
+    font-size: 1rem;
+    color: var(--text-color);
     text-align: justify;
+    line-height: 1.8;
 }
 
 .greeting {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    color: var(--theme-navy);
 }
 
 .highlight {
-    color: #e11d48;
+    color: #0369a1;
+    /* Calm Blue highlight */
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .gold-text {
-    color: #b7891b; /* darker gold for text readability */
+    color: var(--accent-color);
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .small {
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 0.85rem;
+    color: #64748b;
 }
 
 /* Alert Box */
 .alert-box {
-    background-color: #fff4e5;
-    border-left: 4px solid #ff9800;
+    background-color: var(--warning-bg);
+    border-left: 4px solid #f97316;
     padding: 15px;
     margin: 15px 0;
     display: flex;
     align-items: center;
-    gap: 10px;
-    color: #d87c00;
+    gap: 15px;
+    color: #c2410c;
+    border-radius: 0 8px 8px 0;
 }
 
 /* Form Styles */
 .form-group {
     margin-bottom: 20px;
+    text-align: left;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
-    font-weight: 500;
-    color: var(--primary-color);
+    font-weight: 600;
+    color: var(--theme-navy);
+    font-size: 0.95rem;
 }
 
 .required {
@@ -182,22 +244,25 @@ label {
     padding: 2px 6px;
     border-radius: 4px;
     margin-left: 5px;
-    vertical-align: middle;
 }
 
-input[type="text"], input[type="email"] {
+input[type="text"],
+input[type="email"] {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    /* Light grey border */
     border-radius: 8px;
     font-size: 1rem;
-    transition: border-color 0.3s;
+    background: #f8fafc;
+    transition: all 0.3s;
 }
 
 input:focus {
-    border-color: var(--accent-color);
+    border-color: var(--theme-blue);
+    background: #fff;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
 }
 
 .error-message {
@@ -221,11 +286,12 @@ input:focus {
     width: 100%;
     padding: 14px 20px;
     border: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 700;
+    border-radius: 8px;
+    /* Slightly more square for trust */
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -234,39 +300,36 @@ input:focus {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--accent-color) 0%, #C5A059 100%);
+    background: var(--theme-blue);
     color: #fff;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 2px 4px rgba(2, 132, 199, 0.2);
 }
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+.btn-primary:active {
+    background: #0275d8;
+    transform: translateY(1px);
 }
 
 .btn-secondary {
-    background: transparent;
-    border: 2px solid #ddd;
-    color: #666;
+    background: #fff;
+    border: 1px solid #cbd5e1;
+    color: #64748b;
 }
 
 .btn-secondary:hover {
-    background: #f5f5f5;
-    border-color: #ccc;
+    background: #f1f5f9;
+    color: #334155;
 }
 
 .btn-confirm {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-}
-
-.btn-confirm:hover {
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+    background: var(--success-color);
+    color: white;
+    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
 }
 
 .btn-large {
-    padding: 18px 20px;
-    font-size: 1.2rem;
+    padding: 16px 20px;
+    font-size: 1.1rem;
     flex-direction: column;
     gap: 5px;
 }
@@ -279,16 +342,18 @@ input:focus {
 
 /* Benefits List */
 .benefits-list {
-    background: #fafafa;
+    background: #f0f9ff;
+    /* Very light blue */
     padding: 20px;
     border-radius: 10px;
     margin: 20px 0;
+    border: 1px dashed #bae6fd;
 }
 
 .benefits-list h3 {
     text-align: center;
-    margin-bottom: 10px;
-    color: var(--primary-color);
+    margin-bottom: 12px;
+    color: var(--theme-blue);
     font-size: 1rem;
 }
 
@@ -297,12 +362,13 @@ input:focus {
 }
 
 .benefits-list li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: 500;
+    color: var(--theme-navy);
 }
 
 .benefits-list li i {
-    color: var(--accent-color);
+    color: var(--theme-blue);
     margin-right: 8px;
 }
 
@@ -312,21 +378,17 @@ input:focus {
     background: #f8fafc;
     padding: 20px;
     border-radius: 10px;
-    border: 1px dashed #cbd5e1;
+    border: 1px solid #e2e8f0;
     margin-top: 20px;
 }
 
 .agreement-box h3 {
     margin-bottom: 10px;
     font-size: 1rem;
-    color: var(--primary-color);
+    color: var(--theme-navy);
 }
 
 /* Success Screen */
-.success-card {
-    text-align: center;
-}
-
 .success-icon {
     font-size: 4rem;
     color: var(--success-color);
@@ -334,32 +396,43 @@ input:focus {
 }
 
 .success-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 20px;
-    color: var(--primary-color);
+    color: var(--theme-navy);
+    font-weight: 700;
 }
 
 /* Footer */
 .main-footer {
     text-align: center;
-    padding: 20px;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
+    padding: 25px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
 }
 
 /* Spinner */
 .spinner {
-    color: #666;
+    color: #64748b;
     margin-top: 10px;
 }
+
 .hidden {
     display: none;
 }
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive */
@@ -367,7 +440,9 @@ input:focus {
     .container {
         padding: 0 15px;
     }
-    .card {
-        padding: 20px 15px;
+
+    .card,
+    #screen-0 {
+        padding: 25px 20px;
     }
 }
